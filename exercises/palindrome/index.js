@@ -8,8 +8,12 @@
 //   palindrome("abcdefg") === false
 
 function palindrome(str) {
+   let arr = []
 
-    let arr = str.split('')
+     str.split('').forEach((char, i) => {
+        arr.push(char)
+     })
+
 
     let left = 0;
     let right = arr.length-1
@@ -27,5 +31,7 @@ function palindrome(str) {
     console.log(true)
     return true
 }
+
+palindrome('abbb')
 
 module.exports = palindrome;
