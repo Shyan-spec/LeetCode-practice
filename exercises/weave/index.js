@@ -11,64 +11,44 @@
 // use the 'add', 'remove', and 'peek' functions.
 // --- Example
 
+const Queue = require('./queue')
 
 
 function weave(sourceOne, sourceTwo) {
     let q = new Queue();
-
-    // Weave until both queues are empty
-    while (!sourceOne.isEmpty() || !sourceTwo.isEmpty()) {
-        if (!sourceOne.isEmpty()) {
-            q.add(sourceOne.remove());
+   
+    
+    while (sourceOne.length  || sourceTwo.length ) {
+        if (sourceOne.peek()) {
+            console.log(sourceOne.peek())
+            q.add(sourceOne.remove()); // Add to the new queue from sourceOne
+            
         }
-        if (!sourceTwo.isEmpty()) {
-            q.add(sourceTwo.remove())
+        if (sourceTwo.peek()) {
+            console.log(sourceTwo.peek())
+            q.add(sourceTwo.remove()); // Add to the new queue from sourceTwo
+            
         }
     }
-    console.log(q.data)
-    return q.data; // Returning the new queue
+    
+    console.log(q.data);
+    return q
 }
 
-// Queue class definition
-class Queue {
-    constructor() {
-        this.data = [];
-    }
-
-    add(record) {
-        this.data.push(record); // Add to the end, which is typical for queues
-    }
-
-    remove() {
-        return this.data.shift(); // Remove from the front, which is typical for queues
-    }
-
-    peek() {
-        return this.data[0]; // Peek at the front, the next to be removed
-    }
-
-    isEmpty() {
-        return this.data.length === 0; // Helper method to check if the queue is empty
-    }
-}
-
-const queueOne = new Queue();
-queueOne.add(1);
-queueOne.add(2);
-queueOne.add(3);
-queueOne.add(4);
-queueOne.add(5);
-console.log(queueOne.data)
 
 
-const queueTwo = new Queue();
-queueTwo.add('Hi');
-queueTwo.add('To');
-queueTwo.add('You');
-console.log(queueTwo.data)
+// const queueOne = new Queue();
+// queueOne.add(1);
+// queueOne.add(2);
+// queueOne.add(3);
+// console.log(queueOne.data[queueOne.data.length1])
+
+// const queueTwo = new Queue();
+// queueTwo.add('Hi');
+// queueTwo.add('There');
 
 
-weave(queueOne,queueTwo)
+// weave(queueOne,queueTwo)
 //console.log(queueOne, queueTwo)
 
 module.exports = weave;
