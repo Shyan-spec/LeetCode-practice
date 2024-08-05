@@ -39,3 +39,8 @@ function capitalize(str) {
 
 capitalize('get the motion tag');
 module.exports = capitalize;
+
+
+Boolean(10<9)
+
+window.open('www.')
